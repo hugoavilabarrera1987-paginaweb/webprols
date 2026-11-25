@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { connection } from "next/server";
@@ -21,6 +20,7 @@ import {
 import ContactForm from "@/app/components/ContactForm";
 import ServicesPage from "@/app/components/ServicesPage";
 import SolutionLandingPage from "@/app/components/SolutionLandingPage";
+import PortfolioProjectGrid from "@/app/components/PortfolioProjectGrid";
 import editorialStyles from "@/app/components/EditorialPages.module.css";
 import { getPublishedBlogPosts, legacyBlogPosts } from "@/lib/supabase/blog";
 import { getPublishedProjects } from "@/lib/supabase/portfolio";
@@ -251,47 +251,10 @@ async function PortfolioPage() {
             <p>Cada proyecto parte de un objetivo y se construye a la medida de sus usuarios.</p>
           </div>
           {displayProjects.length > 0 ? (
-            <div className={editorialStyles.projectGrid}>
-              {displayProjects.map((project) => (
-                <article className={editorialStyles.projectCard} key={project.id}>
-                  <Link className={editorialStyles.projectVisualLink} href={project.href} aria-label={`Ver ${project.title}`}>
-                    {project.image ? (
-                      <Image
-                        className={editorialStyles.projectImage}
-                        src={project.image.url}
-                        alt={project.image.alt_text || project.title}
-                        width={760}
-                        height={440}
-                        sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1212px) calc((100vw - 68px) / 3), 381px"
-                        quality={75}
-                      />
-                    ) : (
-                      <div className={editorialStyles.projectArtwork} aria-hidden="true">
-                        <div className={editorialStyles.projectBrowser}>
-                          <span><i /><i /><i /></span>
-                          <b>{project.category}</b>
-                          <div><i /><i /><i /></div>
-                        </div>
-                        <div className={editorialStyles.projectAbstract}>
-                          <span /><span /><span />
-                        </div>
-                      </div>
-                    )}
-                    {project.isFeatured && <span className={editorialStyles.featuredBadge}>Destacado</span>}
-                    <span className={editorialStyles.projectViewIcon}><ArrowUpRight size={19} /></span>
-                  </Link>
-                  <div className={editorialStyles.projectInfo}>
-                    <span className={editorialStyles.projectCategory}>{project.category}</span>
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <Link className={editorialStyles.projectLink} href={project.href}>
-                      {managedProjects === null ? "Consultar proyecto" : "Ver proyecto"}
-                      <ArrowRight size={16} />
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <PortfolioProjectGrid
+              projects={displayProjects}
+              isManaged={managedProjects !== null}
+            />
           ) : (
             <div className={editorialStyles.emptyState}>
               <span><Sparkles size={22} /></span>
