@@ -91,7 +91,7 @@ async function ResolvedPortfolioProject({ params }: Pick<Props, "params">) {
         </div>
       </div>
       <section className="portfolio-detail-cta">
-        <div className="container"><div><span className="section-kicker">¿Tienes un proyecto similar?</span><h2>Hagamos crecer tu negocio en internet</h2></div><Link href="/contacto" className="btn btn-primary">Conversemos <ArrowUpRight size={17} /></Link></div>
+        <div className="container"><div><span className="section-kicker">¿Tienes un proyecto similar ?</span><h2>Hagamos crecer tu negocio en internet</h2></div><Link href="/contacto" className="btn btn-primary">Conversemos <ArrowUpRight size={17} /></Link></div>
       </section>
     </main>
   );
