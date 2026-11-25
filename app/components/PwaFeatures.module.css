@@ -1,0 +1,171 @@
+.installPrompt {
+  position: fixed;
+  z-index: 110;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: max(16px, env(safe-area-inset-left));
+  display: flex;
+  width: min(380px, calc(100vw - 32px));
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--foreground);
+  box-shadow: 0 12px 35px rgba(7, 24, 47, 0.18);
+}
+
+.installCopy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.installCopy svg {
+  flex: 0 0 auto;
+  color: var(--link-color);
+}
+
+.installButton {
+  min-height: 44px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--blue);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dismissButton {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.installButton:focus-visible,
+.dismissButton:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.offlineNotice {
+  position: fixed;
+  z-index: 90;
+  right: calc(64px + max(16px, env(safe-area-inset-right)));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: max(16px, env(safe-area-inset-left));
+  display: flex;
+  width: fit-content;
+  max-width: min(600px, calc(100vw - 96px));
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid #e5bf61;
+  border-radius: 12px;
+  background: #fff7df;
+  color: #573d07;
+  box-shadow: 0 12px 32px rgba(7, 24, 47, 0.18);
+  font-size: 12px;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+.offlineNotice svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.dialogBackdrop {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+    max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  background: rgba(7, 24, 47, 0.56);
+}
+
+.dialog {
+  position: relative;
+  width: min(100%, 420px);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--foreground);
+  box-shadow: 0 24px 70px rgba(7, 24, 47, 0.3);
+}
+
+.dialog > .dismissButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.dialog h2 {
+  margin: 0 38px 12px 0;
+  font-size: 19px;
+}
+
+.dialog p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.dialog p svg {
+  color: var(--link-color);
+}
+
+@media (max-width: 480px) {
+  .installPrompt {
+    gap: 5px;
+    padding: 7px;
+  }
+
+  .installCopy {
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .installButton {
+    padding-inline: 9px;
+    font-size: 11px;
+  }
+
+  .offlineNotice {
+    right: calc(62px + max(12px, env(safe-area-inset-right)));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: max(12px, env(safe-area-inset-left));
+    max-width: calc(100vw - 86px);
+    padding: 10px 11px;
+    font-size: 11px;
+  }
+
+  .dialog {
+    padding: 25px 21px;
+  }
+}

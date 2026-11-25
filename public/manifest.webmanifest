@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Web Pro LS - Sitios y Sistemas Web",
+  "short_name": "Web Pro LS",
+  "description": "Sitios web y sistemas digitales a medida para empresas y emprendedores.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07182f",
+  "theme_color": "#07182f",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
