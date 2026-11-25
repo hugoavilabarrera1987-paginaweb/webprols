@@ -24,7 +24,7 @@ const solutionPages: Record<string, SolutionPage> = {
     category: "Servicios",
     categoryHref: "/servicios",
     categoryLabel: "servicios",
-    heading: "Diseño que conecta tu marca con las personas",
+    heading: "Diseño que conecta tu marca con las personas ",
     overview:
       "Definimos una presencia visual consistente y organizamos cada pantalla pensando en cómo las personas descubren, entienden y usan tu sitio.",
     audience:
